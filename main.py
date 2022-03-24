@@ -16,13 +16,18 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import FileResponse
 
-from browser import browser_main
-
 FORMAT = '%(asctime)s %(levelname)s: %(message)s'
 logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
+CONFIG_FILENAME = "data/config.yaml"
+DEV_CONFIG_FILENAME = "data/config.dev.yaml"
+
+config_filename = CONFIG_FILENAME if not Path(DEV_CONFIG_FILENAME).exists() else DEV_CONFIG_FILENAME
 with open("data/config.yaml", "r") as configfile:
     config = yaml.load(configfile, Loader=yaml.FullLoader)
+
+if config.get("sys").get("browser"):
+    from browser import browser_main
 
 app = FastAPI()
 
@@ -51,9 +56,13 @@ def main() -> None:
 if __name__ == "__main__":
     logging.info('caOS Start')
 
-    browser_thread = Thread(target=browser_main)
-    browser_thread.start()
+    if config.get("sys").get("browser"):
+        browser_thread = Thread(target=browser_main)
+        browser_thread.start()
+
     main()
-    browser_thread.join()
+
+    if config.get("sys").get("browser"):
+        browser_thread.join()
 
     logging.info('caOS Stopped')
