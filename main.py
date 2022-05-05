@@ -23,7 +23,7 @@ CONFIG_FILENAME = "data/config.yaml"
 DEV_CONFIG_FILENAME = "data/config.dev.yaml"
 
 config_filename = CONFIG_FILENAME if not Path(DEV_CONFIG_FILENAME).exists() else DEV_CONFIG_FILENAME
-with open("data/config.yaml", "r") as configfile:
+with open(config_filename, "r") as configfile:
     config = yaml.load(configfile, Loader=yaml.FullLoader)
 
 if config.get("sys").get("browser"):
