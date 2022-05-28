@@ -1,11 +1,26 @@
 export default {
   name: "HieView",
+  data: () => ({
+    status: "",
+    display_status: ""
+  }),
   methods: {
+    async flash() {
+      for (const i in this.status) {
+        setTimeout(() => {
+          this.display_status += this.status[i]
+        }, i * 300)
+      }
+    },
     back() {
       window.history.length
           ? this.$router.back()
           : this.$router.replace("/")
     }
+  },
+  created() {
+    this.status = "正在聆聽";
+    requestAnimationFrame(this.flash);
   },
   template: `
     <div class="w-full">
@@ -13,7 +28,7 @@ export default {
             <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                 <div>
                     <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">
-                        hIE <span style="color: #fc5500">正在聆聽</span>
+                        hIE <span style="color: #fc5500">{{display_status}}</span>
                     </h2>
                     <p class="mt-2 text-sm text-gray-500 md:text-base">
                         ......
