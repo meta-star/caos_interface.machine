@@ -7,9 +7,13 @@ export default {
     IndexClock,
     IndexMenu,
   },
+  data: () => ({
+    show_menu: false
+  }),
   template: `
   <div>
-    <IndexMenu />
+    <IndexClock @open-menu="show_menu=true" v-if="!show_menu" />
+    <IndexMenu @close-menu="show_menu=false" v-else />
   </div>
   `
 };

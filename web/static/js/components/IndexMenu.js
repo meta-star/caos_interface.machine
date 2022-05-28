@@ -7,39 +7,43 @@ export default {
     },
     data: () => ({
         datetime: null,
-        menu: [
-            {
-                name: "關閉功能表",
-                icon: "close_menu",
-                method: () => null
-            },
-            {
-                name: "hIE 設定",
-                icon: "chat",
-                method: () => null
-            },
-            {
-                name: "我的鬧鐘",
-                icon: "clock",
-                method: () => null
-            },
-            {
-                name: "家電控制",
-                icon: "power",
-                method: () => null
-            },
-            {
-                name: "系統設定",
-                icon: "setting",
-                method: () => null
-            },
-            {
-                name: "關於系統",
-                icon: "about",
-                method: () => null
-            }
-        ]
     }),
+    computed: {
+        menu() {
+            return [
+                {
+                    name: "關閉功能表",
+                    icon: "close_menu",
+                    method: () => this.$emit("close-menu")
+                },
+                {
+                    name: "hIE 設定",
+                    icon: "chat",
+                    method: () => null
+                },
+                {
+                    name: "我的鬧鐘",
+                    icon: "clock",
+                    method: () => null
+                },
+                {
+                    name: "家電控制",
+                    icon: "power",
+                    method: () => null
+                },
+                {
+                    name: "系統設定",
+                    icon: "setting",
+                    method: () => null
+                },
+                {
+                    name: "關於系統",
+                    icon: "about",
+                    method: () => null
+                }
+            ]
+        }
+    },
     methods: {
         async clock() {
             while (true) {
