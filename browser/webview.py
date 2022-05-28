@@ -9,6 +9,7 @@ from pgi.repository import Gtk, WebKit2
 
 current_path = Path(__file__).parent.resolve()
 
+
 class Browser:
     def __init__(self):
         self.builder = Gtk.Builder()
@@ -18,12 +19,12 @@ class Browser:
 
         self.window = self.builder.get_object("window1")
         self.window.connect('destroy', lambda w: Gtk.main_quit())
-        self.scrolledwindow = self.builder.get_object("scrolledwindow")
+        self.scrolled_window = self.builder.get_object("scrolledwindow")
         self.window.show_all()
 
         self.webview = WebKit2.WebView()
-        self.scrolledwindow.add(self.webview)
-        self.webview.load_uri('http://localhost:7351')
+        self.scrolled_window.add(self.webview)
+        self.webview.load_uri('http://localhost:8000')
         self.webview.show()
 
 
