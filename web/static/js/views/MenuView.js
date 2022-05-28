@@ -1,7 +1,7 @@
-import MenuItem from "./MenuItem.js";
+import MenuItem from "../components/MenuItem.js";
 
 export default {
-    name: "IndexMenu",
+    name: "MenuView",
     components: {
         MenuItem,
     },
@@ -14,7 +14,7 @@ export default {
                 {
                     name: "關閉功能表",
                     icon: "close_menu",
-                    method: () => this.$emit("close-menu")
+                    method: this.back
                 },
                 {
                     name: "hIE 設定",
@@ -45,6 +45,11 @@ export default {
         }
     },
     methods: {
+        back() {
+            window.history.length
+                ? this.$router.back()
+                : this.$router.replace("/")
+        },
         async clock() {
             while (true) {
                 this.datetime = new Date();

@@ -4,6 +4,14 @@ const routes = [
     component: () => import("./views/IndexView.js"),
   },
   {
+    path: "/hie",
+    component: () => import("./views/HieView.js"),
+  },
+  {
+    path: "/menu",
+    component: () => import("./views/MenuView.js"),
+  },
+  {
     path: "/about",
     component: () => import("./views/AboutView.js"),
   },
