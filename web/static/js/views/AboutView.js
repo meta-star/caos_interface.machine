@@ -1,5 +1,5 @@
 export default {
-  name: "About",
+  name: "AboutView",
   template: `
     <div>
     caOS
