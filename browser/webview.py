@@ -21,6 +21,7 @@ class Browser:
         self.window.connect('destroy', lambda w: Gtk.main_quit())
         self.scrolled_window = self.builder.get_object("scrolledwindow")
         self.window.show_all()
+        self.window.fullscreen()
 
         self.webview = WebKit2.WebView()
         self.scrolled_window.add(self.webview)
