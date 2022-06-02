@@ -8,3 +8,7 @@ web:
 sys:
   browser: true
   realtime_temperature: true
+# sensor configs
+sensor:
+  dht_22:
+    pin: 4

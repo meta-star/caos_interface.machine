@@ -2,9 +2,9 @@ from pathlib import Path
 
 import yaml
 
-CONFIG_FILENAME = "default.yaml"
-DEV_CONFIG_FILENAME = "data/dev.yaml"
+DEFAULT_CONFIG_FILENAME = "default.yaml"
+CONFIG_FILENAME = "data/config.yaml"
 
-config_filename = CONFIG_FILENAME if not Path(DEV_CONFIG_FILENAME).exists() else DEV_CONFIG_FILENAME
+config_filename = DEFAULT_CONFIG_FILENAME if not Path(CONFIG_FILENAME).exists() else CONFIG_FILENAME
 with open(config_filename, "r") as config_file:
     config = yaml.load(config_file, Loader=yaml.FullLoader)

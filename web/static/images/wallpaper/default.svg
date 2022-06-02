@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360px" height="360px"
+    viewBox="0 0 310 310" version="1.2">
+    <g id="surface5114">
+        <path
+            style="fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.803922%,10.980392%,10.588235%);stroke-opacity:1;stroke-miterlimit:10;"
+            d="M 100 20 L 20 100 L 100 180 " />
+        <path
+            style="fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.803922%,10.980392%,10.588235%);stroke-opacity:1;stroke-miterlimit:10;"
+            d="M 180 20 L 100 100 L 180 180 L 260 100 L 180 20 " />
+        <path
+            style="fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.803922%,10.980392%,10.588235%);stroke-opacity:1;stroke-miterlimit:10;"
+            d="M 260 20 L 260 180 " />
+    </g>
+</svg>

@@ -1,7 +1,8 @@
 export default new Vuex.Store({
   state: {
     loaded: false,
-    sync: {}
+    sync: {},
+    weather: {}
   },
   mutations: {
     updateLoaded(state, status) {
@@ -9,6 +10,9 @@ export default new Vuex.Store({
     },
     updateSync(state, payload) {
       state.sync = payload;
+    },
+    updateWeather(state, payload) {
+      state.weather = payload;
     }
   },
   actions: {
@@ -21,6 +25,16 @@ export default new Vuex.Store({
           })
           .catch((e) => {
             commit('updateLoaded', null);
+            console.error(e);
+          });
+    },
+    fetchWeather({commit}) {
+      axios
+          .get('/weather')
+          .then((x) => {
+            commit('updateWeather', x.data);
+          })
+          .catch((e) => {
             console.error(e);
           });
     }

@@ -44,6 +44,7 @@ export default {
     },
     created() {
         this.clock();
+        this.$store.dispatch('fetchWeather');
     },
     template: `
     <div class="w-full">
@@ -55,6 +56,14 @@ export default {
                     </h2>
                     <p class="mt-2 text-sm text-gray-500 md:text-base">
                         {{localeDateClockString}}
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500 md:text-base">
+                        氣溫：{{($store.state.weather.online.weather.main.temp-273.15).toFixed(1)}}°C
+                        {{$store.state.weather.online.weather.name}}）
+                    </p>
+                    <p class="mt-1 text-sm text-gray-500 md:text-base">
+                        室度：{{($store.state.weather.offline.temperature).toFixed(1)}}°C
+                        濕度：{{($store.state.weather.offline.humidity).toFixed(1)}}
                     </p>
                     <div class="flex justify-center lg:justify-start mt-6">
                         <button class="px-4 py-3 bg-gray-900 text-gray-200 text-lg font-semibold rounded hover:bg-gray-800" @click="$router.push('/menu')">
