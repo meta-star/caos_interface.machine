@@ -1,5 +1,5 @@
 # 'production' or 'development'
-env: development
+env: production
 # web configs
 web:
   host: 127.0.0.1
@@ -7,7 +7,6 @@ web:
 # sys configs
 sys:
   browser: true
-  realtime_temperature: true
 # sensor configs
 sensor:
   dht_22:

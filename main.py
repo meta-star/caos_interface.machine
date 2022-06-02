@@ -13,8 +13,9 @@ from src.init.cloud_token import cloud_token
 
 from src.api import execute
 
-FORMAT = '%(asctime)s %(levelname)s: %(message)s'
-logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+if config.get("env") == "development":
+    FORMAT = '%(asctime)s %(levelname)s: %(message)s'
+    logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
 if config.get("sys").get("browser"):
     from src.browser import browser_main

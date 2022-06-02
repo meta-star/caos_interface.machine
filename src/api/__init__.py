@@ -34,7 +34,9 @@ async def read_state():
 
 @app.get("/weather")
 async def read_weather():
-    dht_22_result = dht_22.get_data(web_state.get("ctx"))
+    dht_22_result = dht_22.get_data(
+        web_state.get("ctx").get("config").get("sensor").get("dht_22")
+    )
     return {
         "online": get("weather/ip"),
         "offline": {
