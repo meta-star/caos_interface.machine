@@ -5,9 +5,8 @@ from fastapi.staticfiles import StaticFiles
 from starlette.responses import FileResponse
 from uvicorn import run
 
-from ..utils import (
-    is_internet_available,
-    is_caos_cloud_service_v1_available
+from src.utils.caos_v1 import (
+    get
 )
 
 app = FastAPI()
@@ -29,9 +28,15 @@ async def read_index():
 
 @app.get("/state")
 async def read_state():
-    web_state["internet_available"] = is_internet_available()
-    web_state["cloud_available"] = is_caos_cloud_service_v1_available()
     return web_state
+
+
+@app.get("/weather")
+async def read_weather():
+    return {
+        "online": get("weather/ip"),
+        "offline": None
+    }
 
 
 def execute(ctx: dict) -> None:
