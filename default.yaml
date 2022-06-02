@@ -1,5 +1,10 @@
+# 'production' or 'development'
+env: development
+# web configs
 web:
   host: 127.0.0.1
   port: 8000
+# sys configs
 sys:
   browser: true
+  realtime_temperature: true

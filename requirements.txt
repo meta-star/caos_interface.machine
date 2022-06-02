@@ -6,7 +6,6 @@ h11==0.13.0
 httptools==0.4.0
 idna==3.3
 pgi==0.0.11.2
-#PyBluez==0.23
 pydantic==1.9.1
 python-dotenv==0.20.0
 PyYAML==6.0
@@ -18,5 +17,5 @@ watchgod==0.8.2
 websockets==10.3
 requests~=2.27.1
 urllib3~=1.26.9
-starlette==0.20.1
+starlette==0.19.1
 cachetools~=5.2.0
