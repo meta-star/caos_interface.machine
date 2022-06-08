@@ -8,7 +8,6 @@ from uvicorn import run
 from ..utils.caos_v1 import (
     get
 )
-from ..sensors import dht_22
 
 app = FastAPI()
 web_state = {}
@@ -34,14 +33,11 @@ async def read_state():
 
 @app.get("/weather")
 async def read_weather():
-    dht_22_result = dht_22.get_data(
-        web_state.get("ctx").get("config").get("sensor").get("dht_22")
-    )
     return {
         "online": get("weather/ip"),
         "offline": {
-            "temperature": dht_22_result[0],
-            "humidity": dht_22_result[1]
+            "temperature": None,
+            "humidity": None
         }
     }
 

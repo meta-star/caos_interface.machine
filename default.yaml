@@ -7,7 +7,3 @@ web:
 # sys configs
 sys:
   browser: true
-# sensor configs
-sensor:
-  dht_22:
-    pin: 4
