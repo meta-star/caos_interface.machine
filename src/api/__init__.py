@@ -6,7 +6,11 @@ from starlette.responses import FileResponse
 from uvicorn import run
 
 from ..utils.caos_v1 import (
-    get
+    get,
+    get_force,
+    post,
+    put,
+    delete,
 )
 from ..socket import (
     read
@@ -44,6 +48,51 @@ async def read_weather():
             "temperature": data[1],
         }
     }
+
+
+@app.get("/automate/devices")
+async def read_automate_devices():
+    return get_force(
+        "automate/devices",
+        web_state.get("ctx").get("cloud_token").get("secret")
+    )
+
+
+@app.post("/automate/device")
+async def add_automate_device(machine_id: str, assign_code: int):
+    return post(
+        "automate/device",
+        {
+            "machine_id": machine_id,
+            "assign_code": assign_code
+        },
+        web_state.get("ctx").get("cloud_token").get("secret")
+    )
+
+
+@app.get("/automate/device/{device_id}")
+async def read_automate_device(device_id: str):
+    return get_force(
+        f"automate/device/{device_id}",
+        web_state.get("ctx").get("cloud_token").get("secret")
+    )
+
+
+@app.put("/automate/device/{device_id}")
+async def update_automate_device(device_id: str, state: bool):
+    return put(
+        f"automate/device/{device_id}",
+        {"message": "ON" if state else "OFF"},
+        web_state.get("ctx").get("cloud_token").get("secret")
+    )
+
+
+@app.delete("/automate/device/{device_id}")
+async def remove_automate_device(device_id: str):
+    return delete(
+        f"automate/device/{device_id}",
+        web_state.get("ctx").get("cloud_token").get("secret")
+    )
 
 
 def execute(ctx: dict) -> None:

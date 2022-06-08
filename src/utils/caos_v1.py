@@ -3,6 +3,8 @@ from cachetools import cached, TTLCache
 from requests import (
     get as http_get,
     post as http_post,
+    put as http_put,
+    delete as http_delete,
     ConnectionError
 )
 from os.path import join
@@ -31,7 +33,7 @@ def _get_general_args(path: str, secret: str):
         "url": join(_BASE_URL, path),
         "timeout": 5,
         "headers": {
-            "Authorization": secret
+            "CAOS": secret
         }
     }
 
@@ -66,8 +68,24 @@ def get_force(path: str, secret: str = "") -> Union[dict, None]:
 
 
 @_available
-def post(path: str, data: any, secret: str = "") -> Union[dict, None]:
-    r = http_post(data=data, **_get_general_args(path, secret))
+def post(path: str, json: any, secret: str = "") -> Union[dict, None]:
+    r = http_post(json=json, **_get_general_args(path, secret))
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+@_available
+def put(path: str, json: any, secret: str = "") -> Union[dict, None]:
+    r = http_put(json=json, **_get_general_args(path, secret))
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+@_available
+def delete(path: str, secret: str = "") -> Union[dict, None]:
+    r = http_delete(**_get_general_args(path, secret))
     if r.status_code != 200:
         return None
     return r.json()
