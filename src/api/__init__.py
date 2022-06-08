@@ -8,6 +8,9 @@ from uvicorn import run
 from ..utils.caos_v1 import (
     get
 )
+from ..socket import (
+    read
+)
 
 app = FastAPI()
 web_state = {}
@@ -33,11 +36,12 @@ async def read_state():
 
 @app.get("/weather")
 async def read_weather():
+    data = next(read(web_state.get("ctx").get("config").get("socket")))
     return {
         "online": get("weather/ip"),
         "offline": {
-            "temperature": None,
-            "humidity": None
+            "temperature": data[0],
+            "humidity": data[1],
         }
     }
 

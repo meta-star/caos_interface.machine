@@ -7,3 +7,6 @@ web:
 # sys configs
 sys:
   browser: true
+# socket configs
+socket:
+  address: /caos.socket
