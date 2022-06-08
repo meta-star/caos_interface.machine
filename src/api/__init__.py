@@ -40,8 +40,8 @@ async def read_weather():
     return {
         "online": get("weather/ip"),
         "offline": {
-            "temperature": data[0],
-            "humidity": data[1],
+            "humidity": data[0],
+            "temperature": data[1],
         }
     }
 
