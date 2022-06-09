@@ -29,7 +29,7 @@ export default {
                 {
                     name: "家電控制",
                     icon: "power",
-                    method: () => null
+                    method: () => this.$router.push("/automate")
                 },
                 {
                     name: "系統設定",
@@ -39,7 +39,7 @@ export default {
                 {
                     name: "關於系統",
                     icon: "about",
-                    method: () => null
+                    method: () => this.$router.push('/about')
                 }
             ]
         }

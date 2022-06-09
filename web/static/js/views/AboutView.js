@@ -1,8 +1,8 @@
 export default {
   name: "AboutView",
   template: `
-    <div>
+  <div>
     caOS
-    </div>
+  </div>
   `,
 };
