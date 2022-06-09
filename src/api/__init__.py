@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import FileResponse
 from uvicorn import run
@@ -79,7 +79,8 @@ async def read_automate_device(device_id: str):
 
 
 @app.put("/automate/device/{device_id}")
-async def update_automate_device(device_id: str, state: bool):
+async def update_automate_device(device_id: str, request: Request):
+    state = (await request.json()).get("state")
     return put(
         f"automate/device/{device_id}",
         {"message": "ON" if state else "OFF"},
