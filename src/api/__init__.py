@@ -59,7 +59,10 @@ async def read_automate_devices():
 
 
 @app.post("/automate/device")
-async def add_automate_device(machine_id: str, assign_code: int):
+async def add_automate_device(request: Request):
+    request_data = await request.json()
+    machine_id = request_data.get("machine_id")
+    assign_code = request_data.get("assign_code")
     return post(
         "automate/device",
         {
