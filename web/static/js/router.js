@@ -12,6 +12,10 @@ const routes = [
     component: () => import("./views/MenuView.js"),
   },
   {
+    path: "/alarmclock",
+    component: () => import("./views/AlarmClock.js"),
+  },
+  {
     path: "/automate",
     component: () => import("./views/AutomateView.js"),
   },

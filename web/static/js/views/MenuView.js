@@ -22,9 +22,9 @@ export default {
                     method: () => null
                 },
                 {
-                    name: "我的鬧鐘",
+                    name: "我鬧鐘",
                     icon: "clock",
-                    method: () => null
+                    method: () => this.$router.push('/alarmclock')
                 },
                 {
                     name: "家電控制",
