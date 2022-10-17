@@ -16,6 +16,10 @@ const routes = [
     component: () => import("./views/AlarmClock.js"),
   },
   {
+    path: "/visitor",
+    component: () => import("./views/Visitor.js"),
+  },
+  {
     path: "/automate",
     component: () => import("./views/AutomateView.js"),
   },

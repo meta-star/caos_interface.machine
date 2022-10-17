@@ -2,7 +2,7 @@ export default {
   name: "AutomatePairView",
   template: `
     <div>
-      Unavailable
+      Unavailableaaaaaaa
     </div>
     `,
 };

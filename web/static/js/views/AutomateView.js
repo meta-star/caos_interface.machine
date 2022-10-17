@@ -19,7 +19,7 @@ export default {
         {
           name: "配對新裝置",
           icon: "add",
-          method: () => this.$router.push("/automate/pair"),
+          method: () => this.$router.push("/visitor"),
         },
       ];
     },

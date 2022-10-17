@@ -19,7 +19,7 @@ export default {
                 {
                     name: "hIE 設定",
                     icon: "chat",
-                    method: () => null
+                    method: () => this.$router.push('/visitor')
                 },
                 {
                     name: "我的鬧鐘",
@@ -34,7 +34,7 @@ export default {
                 {
                     name: "系統設定",
                     icon: "setting",
-                    method: () => null
+                    method: () => this.$router.push('/visitor')
                 },
                 {
                     name: "關於系統",
