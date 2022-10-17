@@ -11,6 +11,7 @@ export default {
       axios
         .get(`/automate/device/${this.$route.params.id}`)
         .then((x) => {
+          x.data.state = x.data.state || {};
           this.device = x.data;
         })
         .catch((e) => {
