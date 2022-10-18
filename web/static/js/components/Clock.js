@@ -91,6 +91,6 @@ export default {
     }
   },
   template: `
-    <canvas ref="canvas" width="400" height="400" style="background-color:#FFFFFF"></canvas>
+    <canvas ref="canvas" width="750" height="750" style="background-color:#FFFFFF"></canvas>
   `
 }
