@@ -59,7 +59,7 @@ export default {
                     </p>
                     <p class="mt-2 text-sm text-gray-500 md:text-base">
                         氣溫：{{($store.state.weather.online.weather.main.temp-273.15).toFixed(1)}}°C
-                        {{$store.state.weather.online.weather.name}}）
+                        ({{$store.state.weather.online.weather.name}})
                     </p>
                     <p class="mt-1 text-sm text-gray-500 md:text-base">
                         室度：{{($store.state.weather.offline.temperature).toFixed(1)}}°C
