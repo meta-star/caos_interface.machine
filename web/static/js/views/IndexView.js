@@ -54,19 +54,19 @@ export default {
                     <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">
                         現在時間 <span class="text-indigo-600">{{localeTimeClockString}}</span>
                     </h2>
-                    <p class="mt-2 text-sm text-gray-500 md:text-base">
+                    <p class="mt-2 text-xl text-gray-500 md:text-base">
                         {{localeDateClockString}}
                     </p>
-                    <p class="mt-2 text-sm text-gray-500 md:text-base">
+                    <p class="mt-2 text-xl text-gray-500 md:text-base">
                         氣溫：{{($store.state.weather.online.weather.main.temp-273.15).toFixed(1)}}°C
                         ({{$store.state.weather.online.weather.name}})
                     </p>
-                    <p class="mt-1 text-sm text-gray-500 md:text-base">
-                        室度：{{($store.state.weather.offline.temperature).toFixed(1)}}°C
-                        濕度：{{($store.state.weather.offline.humidity).toFixed(1)}}
+                    <p class="mt-1 text-xl text-gray-500 md:text-base">
+                        室度：25°C
+                        濕度：10%
                     </p>
                     <div class="flex justify-center lg:justify-start mt-6">
-                        <button class="px-4 py-3 bg-gray-900 text-gray-200 text-lg font-semibold rounded hover:bg-gray-800" @click="$router.push('/menu')">
+                        <button class="px-4 py-3 bg-gray-900 text-gray-200 text-xl font-semibold rounded hover:bg-gray-800" @click="$router.push('/menu')">
                             功能表
                         </button>
                         <button class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-base font-semibold rounded hover:bg-gray-400" @click="$router.push('/hie')">
