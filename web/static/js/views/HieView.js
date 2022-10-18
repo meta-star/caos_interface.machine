@@ -21,6 +21,9 @@ export default {
   created() {
     this.status = "正在聆聽";
     requestAnimationFrame(this.flash);
+    setTimeout(() => {
+      this.$router.replace("/visitor");
+    }, 3000)
   },
   template: `
     <div class="w-full">

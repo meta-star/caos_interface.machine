@@ -3,35 +3,34 @@ import AlarmList from "../components/AlarmList.js";
 export default {
   name: "AlarmClock",
   components: {
-    Clock,AlarmList,
+    Clock,
   },
-  methods:{
+  methods: {
     back() {
       window.history.length ? this.$router.back() : this.$router.replace("/");
     },
   },
   data() {
-      return {
+    return {
       items: [
-          {
+        {
           title: "HTML5",
           edit: false
-          },
-          {
+        },
+        {
           title: "CSS3",
           edit: false
-          },
-          {
+        },
+        {
           title: "JavaScript",
           edit: false
-          }
+        }
       ],
       taskItem: "",
       isError: false
-      };
+    };
   },
-      
-  template:`
+  template: `
   <div>
     <div class="flex-start flex-col">
       <button
@@ -41,17 +40,11 @@ export default {
       </button>
     </div>
     <div class="flex items-center content-center w-full align-middle" style="height:100vh;">
-      <div class=" w-1/2">
-        <AlarmList/>
-      </div>
-      <div class="flex justify-center w-1/2">
+      <div class="flex justify-center w-full">
           <Clock/>
       </div>
     </div>
   </div>
-
-    `
-
-
+  `
 
 }
