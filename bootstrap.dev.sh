@@ -12,6 +12,9 @@
 # This script is intended to be run from the root of the project
 # directory. It will not work if run from any other directory.
 
+# If there are any errors, exit immediately.
+set -e
+
 # Check platform/distribution
 if [ ! -f /etc/debian_version ]; then
     echo "This script is intended to be run on a PC running Debian Linux."
@@ -27,6 +30,7 @@ fi
 
 # Install dependencies
 $SUDO apt-get update
+$SUDO apt-get install -y curl
 
 # Install Node.js 16.x from NodeSource
 curl -fsSL https://deb.nodesource.com/setup_16.x | $SUDO -E bash -

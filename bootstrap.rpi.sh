@@ -12,6 +12,9 @@
 # This script is intended to be run from the root of the project
 # directory. It will not work if run from any other directory.
 
+# If there are any errors, exit immediately.
+set -e
+
 # Check platform/distribution
 if [ ! -f /etc/alpine-release ]; then
     echo "This script is intended to be run on a Raspberry Pi 3 running Alpine Linux."
