@@ -10,11 +10,15 @@ const ctx = {
 // Load kernel modules
 require('./src/kernel')(ctx);
 
-// Load webserver modules
-require('./src/webserver')(ctx);
+// Load server modules if enabled
+if (process.env.ENABLE_SERVER === 'yes') {
+    require('./src/server')(ctx);
+}
 
-// Load browser modules
-require('./src/browser')(ctx);
+// Load browser modules if enabled
+if (process.env.ENABLE_BROWSER === "yes") {
+    require('./src/browser')(ctx);
+}
 
 // Show status message
 console.info(
