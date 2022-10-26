@@ -33,6 +33,6 @@ window.on('destroy', () => Gtk.mainQuit())
 window.on('delete-event', () => false)
 
 module.exports = () => {
-    webView.loadUri('https://start.starinc.xyz')
+    webView.loadUri('http://localhost:8000')
     window.showAll()
 }

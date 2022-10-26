@@ -10,6 +10,9 @@ const ctx = {
 // Load kernel modules
 require('./src/kernel')(ctx);
 
+// Load webserver modules
+require('./src/webserver')(ctx);
+
 // Load browser modules
 require('./src/browser')(ctx);
 
