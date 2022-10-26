@@ -37,7 +37,13 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | $SUDO -E bash -
 $SUDO apt-get install -y nodejs
 
 # Install for node-gtk
-$SUDO apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev
+$SUDO apt-get install -y \
+    git \
+    libcairo2 \
+    libcairo2-dev \
+    build-essential \
+    gobject-introspection \
+    libgirepository1.0-dev
 
 # Success
 echo "Development environment bootstrapped successfully."
