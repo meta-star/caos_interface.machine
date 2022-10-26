@@ -8,7 +8,7 @@ app.get('/', (_, res) => {
 });
 
 app.use('/static', express.static(
-    path.join(__dirname, '..', '..', 'web', static)
+    pathJoin(__dirname, '..', '..', 'web', 'static')
 ));
 
 module.exports = (ctx) => {
