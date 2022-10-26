@@ -7,18 +7,21 @@ const ctx = {
     now: () => Math.floor(new Date().getTime() / 1000),
 };
 
-// Load kernel modules
+// Load kernel
 require('./src/kernel')(ctx);
 
-// Load server modules if enabled
-if (process.env.ENABLE_SERVER === 'yes') {
-    require('./src/server')(ctx);
-}
-
-// Load browser modules if enabled
-if (process.env.ENABLE_BROWSER === "yes") {
-    require('./src/browser')(ctx);
-}
+// Load modules
+(() => {
+    const modules = {
+        'daemon': process.env.ENABLE_DAEMON,
+        'server': process.env.ENABLE_SERVER,
+        'browser': process.env.ENABLE_BROWSER,
+    };
+    Object.entries(modules).forEach(([name, isEnabled]) => {
+        if (isEnabled !== "yes") return;
+        require(`./src/${name}`)(ctx);
+    });
+})();
 
 // Show status message
 console.info(
@@ -27,5 +30,4 @@ console.info(
     `\nStarted: ${ctx.now()}`,
     `\nPID: ${process.pid}`,
     `\nUnixPlatform: ${process.platform}`,
-    `\nDaemon UnixSocket: ${process.env.DAEMON_UNIX_SOCKET_PATH}`,
 );

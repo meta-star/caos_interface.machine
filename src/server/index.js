@@ -70,7 +70,14 @@ app.delete("/automate/device/:device_id", async (req, res) => {
 })
 
 module.exports = (ctx) => {
-    app.listen(8000, () => {
-        console.log('Listening on port 8000');
+    ctx.uiServer = {};
+    ctx.uiServer.host = process.env.SERVER_HOST || "localhost";
+    ctx.uiServer.port = process.env.SERVER_PORT || 8000;
+
+    app.listen(ctx.uiServer.port, ctx.uiServer.host, () => {
+        console.log(
+            'UI Server is listening on',
+            `http://${ctx.uiServer.host}:${ctx.uiServer.port}`
+        );
     });
 };
