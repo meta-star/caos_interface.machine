@@ -5,7 +5,7 @@
 const { create: createAxios } = require('axios');
 
 const client = createAxios({
-    baseURL: 'https://caos-api.startw.cf/v1',
+    baseURL: 'https://client.startw.cf/metastar_caos/cloud',
     timeout: 5000,
     headers: {
         'Content-Type': 'application/json',
