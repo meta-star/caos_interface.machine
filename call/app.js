@@ -27,9 +27,8 @@ require('./src/kernel')(ctx);
 console.info(
     "index.linux - The UI System for caOS",
     "\n====",
-    `\nStarted: ${ctx.now()}`,
-    `\nPID: ${process.pid}`,
-    `\nUnixPlatform: ${process.platform}`,
+    `\nStarted at: ${ctx.now()}`,
+    `\nProcess ID: ${process.pid}`,
 );
 if (process.env.CAOS_DEV === "1") {
     console.warn("[Development Mode Enabled]");
